@@ -31,15 +31,15 @@ app.use(cookieParser());
 app.use("/api/lessons", lessonRoute);
 app.use("/api/orders", orderRoute);
 
-// app.listen(port, async () => {
-//   logger.info(`App is running at localhost://${port}.`);
+app.listen(port, async () => {
+  logger.info(`App is running at localhost://${port}.`);
 
-//   await connect();
-// })
-
-const lambda = serverless(app);
-
-export async function handler(event: any, context: any) {
   await connect();
-  return lambda(event, context);
-}
+})
+
+// const lambda = serverless(app);
+
+// export async function handler(event: any, context: any) {
+//   await connect();
+//   return lambda(event, context);
+// }
